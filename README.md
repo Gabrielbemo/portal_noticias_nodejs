@@ -1,0 +1,1 @@
+# Projeto de um portal de notícias usando Node.js
