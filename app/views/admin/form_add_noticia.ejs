@@ -1,22 +1,44 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Formulário de cadastro de Notícia</title>
-		</head>
-	<body>
+<html lang="pt-br">
 
-		<h1>Adicionar notícia</h1>
-		<br />
+<head>
+	<meta charset="utf-8" />
+	<title>Formulário de cadastro de Notícia</title>
+</head>
 
-		<form action="/noticias/salvar" method="post">
-			<label>Título</label>
-			<input type="text" id="titulo" placeholder="Título da notícia" name="titulo" />
-			<br />
-			<label>Notícia</label>
-			<textarea id="noticia" name="noticia" rows="5" cols="30"></textarea>
-			<br/>
-			<input type="submit" value="enviar" />
-		</form>
-	</body>
+<body>
+
+	<h1>Adicionar notícia</h1>
+	<br />
+
+	<% if(validacao) { %>
+		<ul>
+			<% for(var i = 0; i < validacao.length; i++) { %>
+				<li>
+					<%= validacao[i].msg %>
+				</li>
+				<% } %>
+		</ul>
+		<% } %>
+
+			<form action="/noticias/salvar" method="post">
+				<label>Título</label>
+				<input value="<%= noticia.titulo %>" type="text" id="titulo" placeholder="Título da notícia" name="titulo" />
+				<br />
+				<label>Resumo</label>
+				<input value="<%= noticia.resumo%>" type="text" id="resumo" placeholder="resumo da notícia" name="resumo" />
+				<br />
+				<label>Autor</label>
+				<input value="<%= noticia.autor%>"type="text" id="autor" placeholder="autor da notícia" name="autor" />
+				<br />
+				<label>Data</label>
+				<input value="<%= noticia.data_noticia%>"type="date" id="data_noticia" placeholder="data da notícia" name="data_noticia" />
+				<br />
+				<label>Notícia</label>
+				<textarea id="noticia" name="noticia" rows="5" cols="30"><%= noticia.noticia%> </textarea>
+				<br/>
+				<input type="submit" value="enviar" />
+			</form>
+</body>
+
 </html>
