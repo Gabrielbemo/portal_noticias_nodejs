@@ -6,3 +6,4 @@ module.exports = function (app) {
         app.app.controllers.admin.noticias_salvar(app, req, res);
     });
 }
+ 
